@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オセロニア被害者の会</title>
+<style>
+:root{--bg:#090b10;--card:#121620;--card2:#181d29;--text:#f4f6fa;--muted:#9da6b5;--red:#ff3b55;--orange:#ff9f43;--line:#29303d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#202634 0,#090b10 45%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;line-height:1.7}
+header{padding:28px 18px 22px;text-align:center;border-bottom:1px solid var(--line);background:rgba(9,11,16,.85);position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.logo{font-size:12px;color:var(--red);font-weight:800;letter-spacing:2px}.title{font-size:30px;font-weight:900;margin:3px 0}.sub{font-size:12px;color:var(--muted)}
+nav{display:flex;gap:8px;overflow:auto;padding:12px 14px;max-width:1000px;margin:auto}nav a{white-space:nowrap;text-decoration:none;color:#dfe4ec;background:#151a24;border:1px solid var(--line);padding:7px 12px;border-radius:999px;font-size:12px}
+main{max-width:1000px;margin:auto;padding:24px 14px 60px}.hero{padding:34px 22px;border:1px solid #3b4353;border-radius:24px;background:linear-gradient(135deg,#171b25,#0e1118);box-shadow:0 15px 50px #0008}
+.badge{display:inline-block;background:#2a1116;color:#ff7183;border:1px solid #612330;padding:4px 9px;border-radius:999px;font-size:11px;font-weight:800}.hero h1{font-size:clamp(28px,7vw,54px);line-height:1.12;margin:12px 0}.hero p{color:#c5ccd7;margin-bottom:22px}.btn{border:0;border-radius:12px;padding:12px 16px;background:var(--red);color:white;font-weight:800;cursor:pointer}.btn.alt{background:#242b38}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}.stat b{display:block;font-size:26px}.stat span,.muted{color:var(--muted);font-size:12px}
+section{scroll-margin-top:115px;margin-top:38px}h2{font-size:22px;margin:0 0 14px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card h3{margin:0 0 5px}.num{color:var(--red);font-weight:900;font-size:12px}.meter{height:8px;background:#272e3a;border-radius:99px;overflow:hidden;margin-top:10px}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--orange));border-radius:99px}
+.post{display:flex;gap:12px;align-items:flex-start}.avatar{width:38px;height:38px;border-radius:50%;background:#2a303c;display:grid;place-items:center;font-weight:900}.quote{color:#d9dee7}.tag{font-size:11px;color:#ffb26b}
+form{display:grid;gap:10px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}input,textarea,select{width:100%;background:#0c0f15;color:white;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}textarea{min-height:120px;resize:vertical}.notice{font-size:12px;color:var(--muted);margin-top:8px}
+footer{text-align:center;border-top:1px solid var(--line);padding:28px 15px;color:var(--muted);font-size:11px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#111;padding:12px 17px;border-radius:12px;font-weight:800;box-shadow:0 10px 40px #0008;transition:.25s;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:700px){.grid,.cards{grid-template-columns:1fr}.hero{padding:26px 18px}.title{font-size:26px}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">UNOFFICIAL · SATIRE</div>
+  <div class="title">オセロニア被害者の会</div>
+  <div class="sub">〜今日も運命力に敗北しました〜</div>
+  <nav>
+    <a href="#home">ホーム</a><a href="#ranking">不満ランキング</a><a href="#aruaru">あるある</a><a href="#posts">被害報告</a><a href="#request">改善要望</a>
+  </nav>
+</header>
+
+<main id="home">
+<section class="hero">
+  <span class="badge">※完全非公式・ネタサイト</span>
+  <h1>負けた理由？<br>たぶん運です。</h1>
+  <p>オセロニアを愛しているからこそ言いたい。<br>「今のは実力じゃない。手駒が悪かっただけ。」</p>
+  <button class="btn" onclick="rage()">今日の運ゲー度を判定</button>
+  <button class="btn alt" onclick="scrollToId('posts')">被害報告を見る</button>
+</section>
+
+<div class="grid">
+  <div class="stat"><b id="rageNum">87%</b><span>本日の運ゲー度</span></div>
+  <div class="stat"><b>∞</b><span>「その駒持ってんの？」回数</span></div>
+  <div class="stat"><b>0</b><span>納得できた敗北</span></div>
+</div>
+
+<section id="ranking">
+<h2>💀 不満ランキング</h2>
+<div class="cards">
+  <div class="card"><span class="num">01</span><h3>手駒事故</h3><p class="muted">欲しい駒だけ来ない。必要ない駒だけ元気。</p><div class="meter"><i style="width:96%"></i></div></div>
+  <div class="card"><span class="num">02</span><h3>「その駒持ってんの？」</h3><p class="muted">ここぞという場面でピンポイント回答される。</p><div class="meter"><i style="width:94%"></i></div></div>
+  <div class="card"><span class="num">03</span><h3>一発逆転（される側）</h3><p class="muted">逆転要素は素晴らしい。自分が食らうまでは。</p><div class="meter"><i style="width:91%"></i></div></div>
+  <div class="card"><span class="num">04</span><h3>ガチャ</h3><p class="muted">欲しい駒「出ません」。いらない駒「こんにちは」。</p><div class="meter"><i style="width:88%"></i></div></div>
+</div>
+</section>
+
+<section id="aruaru">
+<h2>😂 オセロニアあるある</h2>
+<div class="cards">
+  <div class="card">「あと一手で勝てる！」<br>↓<br><strong>相手「ありがとうございました」</strong></div>
+  <div class="card">自分「この盤面なら勝ち」<br>↓<br><strong>相手のコンボ発動</strong></div>
+  <div class="card">欲しい駒を狙う<br>↓<br><strong>別の駒「よろしく！」</strong></div>
+  <div class="card">勝てそうだから連戦<br>↓<br><strong>3連敗して終了</strong></div>
+</div>
+</section>
+
+<section id="posts">
+<h2>📮 本日の被害報告</h2>
+<div id="postList">
+  <div class="card post"><div class="avatar">A</div><div><b>匿名プレイヤー</b><div class="tag">手駒事故</div><div class="quote">「必要な駒が最後まで来なかった。以上。」</div></div></div>
+  <div class="card post" style="margin-top:10px"><div class="avatar">K</div><div><b>匿名プレイヤー</b><div class="tag">コンボ被害</div><div class="quote">「勝ったと思ってスマホ置いたら、まだ相手のターンだった。」</div></div></div>
+</div>
+</section>
+
+<section id="request">
+<h2>📝 運営への改善要望（ネタ版）</h2>
+<div class="card">
+  <p><strong>・手駒事故への救済を検討してほしい</strong><br><span class="muted">必要な駒が来ないという、プレイヤー共通の悲しみを軽減してほしい。</span></p>
+  <p><strong>・対戦バランスをもっと分かりやすくしてほしい</strong><br><span class="muted">負けた理由を「自分の判断」「編成」「運」のどれなのか理解しやすくしてほしい。</span></p>
+  <p><strong>・初心者にも遊びやすい環境を</strong><br><span class="muted">複雑なシステムを理解する前に心が折れない導線があると嬉しい。</span></p>
+  <p><strong>・そして何より……</strong><br><span class="muted">「その駒持ってんの？」を言わせないゲームにしてください。</span></p>
+</div>
+
+<div class="card" style="margin-top:12px">
+<h3>匿名で被害報告を追加</h3>
+<form onsubmit="addPost(event)">
+<div class="row"><input id="name" maxlength="20" placeholder="名前（任意）"><select id="tag"><option>手駒事故</option><option>コンボ被害</option><option>ガチャ</option><option>マッチング</option><option>その他</option></select></div>
+<textarea id="text" maxlength="160" placeholder="何が起きたか書いてください"></textarea>
+<button class="btn">被害報告を投稿</button>
+</form>
+<div class="notice">※このデモサイトでは投稿内容はサーバーへ送信されません。</div>
+</div>
+</section>
+</main>
+
+<footer>
+オセロニア被害者の会｜非公式・ファンによるネタサイト<br>
+本サイトは特定の個人・団体への攻撃や嫌がらせを目的としたものではありません。
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
+function toast(t){const e=document.getElementById("toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1800)}
+function rage(){const n=Math.floor(65+Math.random()*36);document.getElementById("rageNum").textContent=n+"%";toast(n>90?"本日はかなり危険です。":"まだ心は折れていません。")}
+function addPost(e){
+ e.preventDefault();
+ const name=document.getElementById("name").value.trim()||"匿名プレイヤー";
+ const tag=document.getElementById("tag").value;
+ const text=document.getElementById("text").value.trim();
+ if(!text){toast("被害内容を書いてください");return}
+ const d=document.createElement("div");d.className="card post";d.style.marginTop="10px";
+ d.innerHTML='<div class="avatar">'+name.charAt(0).toUpperCase()+'</div><div><b>'+escapeHtml(name)+'</b><div class="tag">'+escapeHtml(tag)+'</div><div class="quote">「'+escapeHtml(text)+'」</div></div>';
+ document.getElementById("postList").prepend(d);
+ e.target.reset();toast("被害報告を追加しました");
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+</script>
+</body>
+</html>
